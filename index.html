@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Careers — MONTE-CARLO SAIGON</title>
+<style>
+:root{--bg:#faf7f2;--card:#fff;--ink:#1f1416;--mute:#6f6266;--line:#e9dfd6;--acc:#7a1420;--gold:#a87a1f;--tx:#7a1420;--accbg:#f6ebe6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150a0c;--card:#1f1013;--ink:#f3e9dc;--mute:#b39d95;--line:#3a1e22;--acc:#9b1c2c;--gold:#e0b552;--tx:#e0b552;--accbg:#2b1216}}
+:root[data-theme="dark"]{--bg:#150a0c;--card:#1f1013;--ink:#f3e9dc;--mute:#b39d95;--line:#3a1e22;--acc:#9b1c2c;--gold:#e0b552;--tx:#e0b552;--accbg:#2b1216}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+.w{max-width:1000px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-weight:700;letter-spacing:-.02em}
+.logo span{color:var(--gold)}
+a.btn,button.btn{background:var(--acc);color:#fff;border:0;padding:10px 18px;border-radius:8px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+a.btn.o,button.btn.o{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.hero{padding:56px 0 40px}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:0 0 14px;letter-spacing:-.03em}
+.hero p{color:var(--mute);max-width:560px;font-size:1.1rem;margin:0 0 24px}
+.hero .row{display:flex;gap:10px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:8px 0 56px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.stat b{display:block;color:var(--tx);font-size:1.9rem;letter-spacing:-.02em}
+.stat small{color:var(--mute)}
+section{margin:0 0 56px}
+h2{font-size:1.5rem;letter-spacing:-.02em;margin:0 0 6px}
+.sub{color:var(--mute);margin:0 0 22px}
+.bars{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.bar{display:grid;grid-template-columns:120px 1fr 28px;gap:12px;align-items:center;margin:10px 0;font-size:.95rem}
+.track{background:var(--accbg);border-radius:99px;height:10px;overflow:hidden}
+.fill{background:var(--gold);height:100%;border-radius:99px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 14px;border-radius:99px;font:inherit;font-size:.9rem;cursor:pointer}
+.chip.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.jobs{display:grid;gap:12px}
+.job{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
+.job h3{margin:0 0 4px;font-size:1.05rem}
+.meta{color:var(--mute);font-size:.88rem}
+.tag{background:var(--accbg);color:var(--tx);font-size:.75rem;font-weight:600;padding:2px 9px;border-radius:99px;margin-right:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h3{margin:0 0 6px;font-size:1rem}
+.card p{margin:0;color:var(--mute);font-size:.93rem}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.step:before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accbg);color:var(--tx);font-weight:700;margin-bottom:8px}
+.step h3{margin:0 0 4px;font-size:1rem}.step p{margin:0;color:var(--mute);font-size:.92rem}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px;text-align:center}
+.cta p{color:var(--mute)}
+footer{color:var(--mute);font-size:.85rem;padding:24px 0 40px;border-top:1px solid var(--line)}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.mo{position:fixed;inset:0;background:rgba(20,8,10,.65);display:none;align-items:center;justify-content:center;padding:20px;padding-top:calc(20px + env(safe-area-inset-top,0px));z-index:10}
+.mo.on{display:flex}
+.mb{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:16px;max-width:560px;width:100%;max-height:85vh;overflow:auto;padding:26px}
+.mb h3{margin:0 0 6px;font-size:1.3rem}
+.mb h4{margin:18px 0 6px;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold)}
+.mb ul{margin:0;padding-left:18px;color:var(--mute)}
+.mb li{margin:4px 0}
+.x{float:right;background:none;border:0;color:var(--mute);font-size:1.6rem;cursor:pointer;line-height:1}
+@media(max-width:520px){.bar{grid-template-columns:90px 1fr 24px}}
+</style>
+</head>
+<body>
+<div class="w">
+<nav><div class="logo">MONTE-CARLO<span> SAIGON</span></div><a class="btn o" href="#apply">Apply</a></nav>
+
+<header class="hero">
+<h1>Build Vietnam's next esports powerhouse with us.</h1>
+<p>We're a Vietnam-based esports club growing fast, and we're hiring across operations, kitchen, marketing, and IT. Bring your skills. Find your team.</p>
+<div class="row"><a class="btn" href="#roles">View open roles</a><a class="btn o" href="#process">How we hire</a></div>
+</header>
+
+<div class="stats">
+<div class="stat"><b id="n-open">0</b><small>Open positions</small></div>
+<div class="stat"><b id="n-dep">0</b><small>Departments</small></div>
+<div class="stat"><b>4</b><small>Steps to an offer</small></div>
+<div class="stat"><b>Saigon</b><small>Based in HCMC</small></div>
+</div>
+
+<section>
+<h2>Where we're hiring</h2>
+<p class="sub">Open roles by department.</p>
+<div class="bars" id="bars"></div>
+</section>
+
+<section id="roles">
+<h2>Open positions</h2>
+<p class="sub">Filter by department and find your fit.</p>
+<div class="filters" id="filters"></div>
+<div class="jobs" id="jobs"></div>
+</section>
+
+<section>
+<h2>Why join us</h2>
+<p class="sub">A place to grow inside Vietnam's gaming scene.</p>
+<div class="grid">
+<div class="card"><h3>Real competitive stage</h3><p>Work alongside teams that play in national and regional tournaments.</p></div>
+<div class="card"><h3>Grow fast</h3><p>Small teams, clear ownership, and room to take on more every quarter.</p></div>
+<div class="card"><h3>Gamer-friendly culture</h3><p>Flexible hours around match days, and a team that loves the games.</p></div>
+<div class="card"><h3>Fair rewards</h3><p>Competitive pay, performance bonuses, and staff benefits.</p></div>
+</div>
+</section>
+
+<section id="process">
+<h2>Hiring process</h2>
+<p class="sub">Simple, fast, and transparent.</p>
+<div class="steps">
+<div class="step"><h3>Apply</h3><p>Send your CV or portfolio.</p></div>
+<div class="step"><h3>Intro call</h3><p>A short chat about you and the role.</p></div>
+<div class="step"><h3>Skills round</h3><p>Trial, task, or interview by role.</p></div>
+<div class="step"><h3>Offer</h3><p>Decision within a few days.</p></div>
+</div>
+</section>
+
+<section id="apply">
+<div class="cta">
+<h2>Ready to join the squad?</h2>
+<p>Don't see your role? Send us your details anyway. We're always looking for talent.</p>
+<a class="btn" href="mailto:hr@montecarlosaigon.com">hr@montecarlosaigon.com</a>
+</div>
+</section>
+
+<footer>© MONTE-CARLO SAIGON. Esports club, Ho Chi Minh City, Vietnam.</footer>
+</div>
+
+<div class="mo" id="modal"><div class="mb" id="mbody"></div></div>
+<script>
+var MAIL="hr@montecarlosaigon.com";
+var JOBS=[
+{t:"Guest Service Agent",d:"Operations",l:"HCMC",y:"Full-time",s:"",r:["Provide professional gaming and related services to players following MCS service policies and guidelines to maximize customer satisfaction during their play and stay in the assigned area.","Assist players with monetary transactions e.g. cash, tickets, credits, card slips… upon player’s request and double-checked and confirmed by supervisors before issuing to players.","Assist dealers with customer related services and requests during live games.","Ensure fair gaming, assist supervisor to prevent cheating play and monitor professional players in the assigned gaming table.","Ensure gaming facilities and assigned areas in use, clean and tidy.","Other tasks as assigned by the Department Head."],q:["No experience required (Recent graduates accepted)","Good English communication (Chinese/Korean/Japanese is a plus)","Team work &amp; good customer service skills","Pleasant and energetic appearance","Ability to work shifts (rotating shifts) and on holidays."]},
+{t:"Bartender",d:"Operations",l:"HCMC",y:"Full-time",s:"",r:["Maximize customer satisfaction by providing high standard beverage service during their play and stay at MCS.","Be responsible for beverage stock custody and inventory movement record.","Ensure cleanliness of bar and its facilities for hygiene purposes.","Receive beverage order from guest service and ensure right service is delivered to right order following MCS F&amp;B service standard.","Place all F&amp;B orders into POS system.","Receive food order from guest service and ensure essential information is provided including customer ID / name, menu item, gaming machine number / area, special request…","Other tasks as assigned by the Department Head."],q:["High school diploma or equivalent required.","Hard working, active, enthusiastic, helpful, courteous attitude.","Have basic English communication (Chinese/Korean/Japanese is a plus)","Proven experience as Bartender.","Pleasant and energetic appearance","Ability to work shifts (rotating shifts) and on holidays."]},
+{t:"Security Officer",d:"Operations",l:"HCMC",y:"Full-time",s:"",r:["Be responsible for security and physical safety of MCS assets, players, and staff at gaming floor and MCS office.","Maintain security at all entrances to which the player or staff may access.","Monthly check fire hose, fire extinguisher, surveillance equipment to ensure that all equipment are in good and usable condition.","Hand over shift with full equipment &amp; necessary information from current to incoming shift.","Accompany the cashier when there is a transfer or movement of any cash (for A Shift).","Observe and witness stock delivered to MCS by vendor (for A &amp; B shift).","Other tasks as assigned by the Department Head."],q:["High school diploma or equivalent required.","Hard working, active, enthusiastic, helpful, courteous attitude.","Have basic English communication (Chinese/Korean/Japanese is a plus)","Proven experience as Security Officer.","Pleasant and energetic appearance","Ability to work shifts (rotating shifts) and on holidays."]},
+{t:"Commis",d:"Kitchen",l:"HCMC",y:"Full-time",s:"",r:["Process food, serve the customers on time and ensure food quality.","Decorate food properly and serve on time.","Always exchange information between staff in the kitchen.","Comply with the terms, procedures and standards of the department.","Check daily food and report on costs and inventories to shift leaders.","Comply with the FIFO principle for all kinds of food.","Other tasks as assigned by the Department Head."],q:["Ability to learn and understand quickly, have progressive attitudes;","Have good health, be able to work independently or work in groups;","Be fast, hard-working, honest;","Be able to work under pressure"]},
+{t:"Steward",d:"Kitchen",l:"HCMC",y:"Full-time",s:"",r:["Comply with the rules and regulations of the superior.","Report work to the superior.","Work under the direction of the superior.","Clean and sanitize kitchen utensils.","If the kitchen floor is slippery, clean it to avoid accidents for others while working.","Work carefully to avoid damaging the utensils.","Have knowledge about chemicals."],q:["Ability to learn and understand quickly, have progressive attitudes;","Have good health, be able to work independently or work in groups;","Be fast, hard-working, honest;","Be able to work under pressure"]},
+{t:"Marketing Host",d:"Marketing",l:"HCMC",y:"Full-time",s:"",r:["Ensures guests are aware of all property special events and promotions and supports execution of special events and promotions through attendance.","Provides complimentary services to target guests in accordance with established and approved guidelines.","Communicates all relevant information to co-workers and management to maintain consistency and avoid potential problems.","Responsible for flawlessly booking all guest trip accommodations i.e. special event reservations, restaurant reservations, shows, hotel, transportation, special amenities.","Maintains security and confidentiality of files, records and lists and adheres to all gaming board regulations and all property internal controls.","Other tasks as assigned by the Department Head."],q:["No experience required (Recent graduates accepted)","Good in English communication skills (Chinese/Korean/Japanese is a plus)","Good computer skills (MS office)","Pleasant and energetic appearance","Ability to work shifts (rotating shifts) and on holidays."]},
+{t:"Receptionist",d:"Marketing",l:"HCMC",y:"Full-time",s:"",r:["Provide first impression of MCS professional customer service and coordinate with supervisor / host to provide gaming and other related services.","Register new customer: Greet guest in a proper manner following MCS greeting standard and guidelines; Register all information (phone, photo, add, email…) of customer into system &amp; all file/folder concern to it.","Assist supervisor to monitor players through CMS system and inform when they play without membership card.","Coordinate with security to ensure players / competitors in the ban list are not allowed to enter the club.","Maintain the entrance and assigned work areas clean and tidy.","Other tasks as assigned by the Department Head."],q:["1-2 years of experience in this position","Fluent in English (communication &amp; writing) (Chinese/Korean/Japanese is a plus)","Good computer skills (MS office)","Pleasant and energetic appearance","Ability to work shifts (rotating shifts) and on holidays."]},
+{t:"IT Officer",d:"IT",l:"HCMC",y:"Full-time",s:"",r:["Monitors CMS server performance and player tracking module (PTM).","Manages fingerprint access control system.","Monitors point of sale (POS) system.","Continued support and addressing of IT system issues.","Install, upgrade, configure, and troubleshoot IT devices and peripherals.","Manages data backup system.","Ensure all IT systems have security software installed and populated with the latest updates.","Monitors mail server performance and mail routing, manage mail accounts and maintains security levels.","Coordinate in hardware and software purchases.","Coordinate with third party solutions providers on the timelines and delivery dates of solutions and enhancements.","Other tasks required by IT Supervisor / Manager."],q:["Certificate related in IT","Minimum 1-2 year of experience in IT system management","Experience in providing technical support including creating customized queries and reports for an ERP system","Gaming experience is preferred","English communication","Ability to work shifts (rotating shifts) and on holidays."]}
+];
+var deps=[];JOBS.forEach(function(j){if(deps.indexOf(j.d)<0)deps.push(j.d)});
+document.getElementById("n-open").textContent=JOBS.length;
+document.getElementById("n-dep").textContent=deps.length;
+var max=Math.max.apply(null,deps.map(function(d){return JOBS.filter(function(j){return j.d===d}).length}));
+document.getElementById("bars").innerHTML=deps.map(function(d){var n=JOBS.filter(function(j){return j.d===d}).length;
+return '<div class="bar"><span>'+d+'</span><div class="track"><div class="fill" style="width:'+(n/max*100)+'%"></div></div><b>'+n+'</b></div>'}).join("");
+var cur="All";
+function render(){
+document.getElementById("filters").innerHTML=["All"].concat(deps).map(function(d){return '<button class="chip'+(d===cur?' on':'')+'" data-d="'+d+'">'+d+'</button>'}).join("");
+document.getElementById("jobs").innerHTML=JOBS.map(function(j,i){return{j:j,i:i}}).filter(function(o){return cur==="All"||o.j.d===cur}).map(function(o){var j=o.j;return '<div class="job"><div><h3>'+j.t+'</h3><div class="meta"><span class="tag">'+j.d+'</span>'+j.l+' · '+j.y+'</div></div><div class="acts"><button class="btn o" data-jd="'+o.i+'">View JD</button><a class="btn" href="mailto:'+MAIL+'?subject='+encodeURIComponent("Application: "+j.t)+'">Apply</a></div></div>'}).join("");
+}
+document.getElementById("filters").addEventListener("click",function(e){var d=e.target.getAttribute("data-d");if(d){cur=d;render()}});
+var mo=document.getElementById("modal"),mb=document.getElementById("mbody");
+function li(a){return a.map(function(x){return "<li>"+x+"</li>"}).join("")}
+function openJD(i){var j=JOBS[i];mb.innerHTML='<button class="x" aria-label="Close" data-close="1">&times;</button><h3>'+j.t+'</h3><div class="meta"><span class="tag">'+j.d+'</span>'+j.l+' · '+j.y+'</div><h4>Job Description</h4><ul>'+li(j.r)+'</ul><h4>Requirements</h4><ul>'+li(j.q)+'</ul><p><a class="btn" href="mailto:'+MAIL+'?subject='+encodeURIComponent("Application: "+j.t)+'">Apply for this role</a></p>';mo.classList.add("on")}
+document.getElementById("jobs").addEventListener("click",function(e){var i=e.target.getAttribute("data-jd");if(i!==null)openJD(+i)});
+mo.addEventListener("click",function(e){if(e.target===mo||e.target.getAttribute("data-close"))mo.classList.remove("on")});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")mo.classList.remove("on")});
+render();
+</script>
+</body>
+</html>
